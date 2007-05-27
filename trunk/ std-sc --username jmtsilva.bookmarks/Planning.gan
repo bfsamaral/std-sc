@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Projecto Final" company="ISEL-DEETC" webLink="http://moodle.deetc.isel.ipl.pt/moodle/course/view.php?id=247" view-date="2007-02-19" view-index="0" gantt-divider-location="387" resource-divider-location="301" version="2.0">
+<description><![CDATA[Planeamento dos vários estágios do projecto final denominado: Sistema de Triagem Dinãmico em Situação de Catástrofe]]></description>
+<view zooming-state="default:3"/>
+<!-- -->
+<calendars>
+<day-types>
+<day-type id="0"/>
+<day-type id="1"/>
+<calendar id="1" name="default">
+<default-week sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+<overriden-day-types/>
+<days/>
+</calendar>
+</day-types>
+<date year="2007" month="5" date="1"/>
+<date year="2007" month="6" date="7"/>
+<date year="2007" month="6" date="13"/>
+<date year="2007" month="4" date="25"/>
+<date year="2007" month="4" date="6"/>
+</calendars>
+<tasks color="#8cb6ce">
+<taskproperties>
+<taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+<taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+<taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+<taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+<taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+<taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+<taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+<taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+<taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+<taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+</taskproperties>
+<task id="1" name="Formulação da ideia" color="#8cb6ce" meeting="false" start="2006-11-06" duration="39" complete="0" priority="1" expand="true">
+<depend id="0" type="2" difference="0" hardness="Strong"/>
+<depend id="4" type="2" difference="0" hardness="Strong"/>
+<depend id="7" type="2" difference="0" hardness="Strong"/>
+<depend id="12" type="2" difference="0" hardness="Strong"/>
+<depend id="20" type="2" difference="0" hardness="Strong"/>
+</task>
+<task id="7" name="Levantamento de Requisitos" color="#8cb6ce" meeting="false" start="2006-12-29" duration="46" complete="0" priority="1" expand="true"/>
+<task id="19" name="Preparação da Apresentação Intercalar" color="#8cb6ce" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2007-01-29" duration="17" complete="0" priority="2" expand="true">
+<notes><![CDATA[Apresentação a realizar durante 10/15min para um Juri que irá avaliar a continuidade do projecto segundo o acompanhamento que os alunos lhe têm dado.]]></notes>
+</task>
+<task id="5" name="Análise" color="#8cb6ce" meeting="false" start="2006-12-29" duration="54" complete="0" priority="1" expand="true">
+<depend id="22" type="2" difference="0" hardness="Strong"/>
+<depend id="25" type="2" difference="0" hardness="Strong"/>
+<task id="20" name="Estudo de ferramentas auxiliares" color="#8cb6ce" meeting="false" start="2006-12-29" duration="54" complete="0" priority="1" expand="true"/>
+<task id="12" name="Estudo de Plataformas" color="#8cb6ce" meeting="false" start="2006-12-29" duration="54" complete="0" priority="1" expand="true">
+<depend id="11" type="2" difference="0" hardness="Strong"/>
+</task>
+<task id="0" name="Estudo da proposta" color="#8cb6ce" meeting="false" start="2006-12-29" duration="54" complete="0" priority="1" expand="true"/>
+</task>
+<task id="22" name="Desenho da arquitectura" color="#8cb6ce" meeting="false" start="2007-03-15" duration="53" complete="0" priority="1" expand="true">
+<notes><![CDATA[Elaborar a arquitectura e a constítuição dos módulos]]></notes>
+<task id="32" name="Desenho inicial" color="#8cb6ce" meeting="false" start="2007-03-15" duration="13" complete="0" thirdDate="2007-02-14" thirdDate-constraint="0" priority="1" expand="true">
+<depend id="4" type="2" difference="0" hardness="Strong"/>
+</task>
+<task id="33" name="Alterações e melhoramentos" color="#8cb6ce" meeting="false" start="2007-03-15" duration="53" complete="0" priority="1" expand="true"/>
+</task>
+<task id="11" name="Configuração de plataformas" color="#8cb6ce" meeting="false" start="2007-03-15" duration="10" complete="0" priority="1" expand="true">
+<notes><![CDATA[Configurar as plataformas necessárias ao desenvolvimento do projecto. Entre elas podem enunciar-se:
+- Solaria OS 10
+- JCASP
+- JME
+- Kit USB NFC]]></notes>
+</task>
+<task id="4" name="Desenvolvimento" color="#8cb6ce" meeting="false" start="2007-04-03" duration="80" complete="0" priority="1" expand="true">
+<notes><![CDATA[Desenvolvimento de toda a arquitectura.]]></notes>
+<depend id="10" type="2" difference="0" hardness="Strong"/>
+<task id="26" name="Geral" color="#8cb6ce" meeting="false" start="2007-04-03" duration="80" complete="0" priority="1" expand="true"/>
+<task id="27" name="Workflow" color="#8cb6ce" meeting="false" start="2007-04-03" duration="1" complete="0" priority="1" expand="true"/>
+<task id="28" name="Aplicação móvel" color="#8cb6ce" meeting="false" start="2007-04-03" duration="1" complete="0" priority="1" expand="true"/>
+<task id="29" name="Módulo de sincronização" color="#8cb6ce" meeting="false" start="2007-04-03" duration="1" complete="0" priority="1" expand="true"/>
+<task id="30" name="Módulo de comunicação" color="#8cb6ce" meeting="false" start="2007-04-03" duration="1" complete="0" priority="1" expand="true"/>
+<task id="31" name="Módulo NFC" color="#8cb6ce" meeting="false" start="2007-04-03" duration="1" complete="0" priority="1" expand="true"/>
+</task>
+<task id="10" name="Deployment" color="#8cb6ce" meeting="false" start="2007-07-31" duration="5" complete="0" priority="1" expand="true">
+<notes><![CDATA[Fazer deploy da versão final nos diferentes equipamentos que intervenham no sistema.]]></notes>
+<depend id="13" type="2" difference="0" hardness="Strong"/>
+</task>
+<task id="13" name="Testes" color="#8cb6ce" meeting="false" start="2007-08-07" duration="10" complete="0" priority="1" expand="true">
+<notes><![CDATA[Testar todo o sistema e efectuar possíveis correções.]]></notes>
+</task>
+<task id="21" name="Documentação" color="#8cb6ce" meeting="false" start="2007-03-15" duration="116" complete="3" priority="1" expand="true">
+<notes><![CDATA[Documentar o sistema e relatar o processo de desenvolvimento.]]></notes>
+<task id="25" name="Documentos intermédios" color="#8cb6ce" meeting="false" start="2007-03-15" duration="84" complete="5" priority="1" expand="true"/>
+<task id="24" name="Relatório final" color="#8cb6ce" meeting="false" start="2007-07-17" duration="33" complete="0" priority="1" expand="true"/>
+</task>
+</tasks>
+<resources>
+<resource id="0" name="Jorge Silva" function="SoftwareDevelopment:10" contacts="22269@alunos.isel.ipl.pt" phone=""/>
+<resource id="1" name="Bruno Amaral" function="SoftwareDevelopment:10" contacts="bfamaral@alunos.isel.ipl.pt" phone=""/>
+</resources>
+<allocations>
+<allocation task-id="1" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+<allocation task-id="1" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+<allocation task-id="7" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="7" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="19" resource-id="1" function="SoftwareDevelopment:10" responsible="false" load="50.0"/>
+<allocation task-id="19" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="20" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="20" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="12" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="12" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="0" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="0" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="32" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="60.0"/>
+<allocation task-id="32" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="60.0"/>
+<allocation task-id="33" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="5.0"/>
+<allocation task-id="33" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="5.0"/>
+<allocation task-id="11" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="11" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="25.0"/>
+<allocation task-id="26" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="85.0"/>
+<allocation task-id="26" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="85.0"/>
+<allocation task-id="10" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+<allocation task-id="10" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+<allocation task-id="13" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+<allocation task-id="13" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+<allocation task-id="25" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="10.0"/>
+<allocation task-id="25" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="10.0"/>
+<allocation task-id="24" resource-id="1" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+<allocation task-id="24" resource-id="0" function="SoftwareDevelopment:10" responsible="true" load="100.0"/>
+</allocations>
+<vacations>
+<vacation start="2007-07-22" end="2007-07-31" resourceid="1"/>
+</vacations>
+<taskdisplaycolumns>
+<displaycolumn property-id="tpd3" order="0" width="194"/>
+<displaycolumn property-id="tpd4" order="1" width="16"/>
+<displaycolumn property-id="tpd5" order="2" width="15"/>
+</taskdisplaycolumns>
+<previous/>
+<roles roleset-name="Default"/>
+<roles roleset-name="SoftwareDevelopment"/>
+</project>
