@@ -1,0 +1,16 @@
+install repository
+upload sars to repository
+donwload each sar and open it:
+  - Enterprise Manager-Monitoring and Runtime Administration(Win32)
+      15000   -  service
+
+  - Enterprise designer
+    go to /bin/runed.bat and choose update center
+    
+  - logical host
+    createdomain.bat
+    
+    
+  necessario fazer upgrade para a  5.1.1 porque é a 5.1.0
+  
+  
