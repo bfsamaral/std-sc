@@ -1,0 +1,63 @@
+Send Packet: ====>   12:05:49
+0 s 
+
+Receive Packet: <==== 12:05:49
+FF 00 00 00 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 16 4B 01 01 04 00 88 04 31 CC 7D 95 
+
+Send Packet: ====>   12:05:52
+0 l 2 0 f f A f f f f f f f f f f f f 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 00 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 04 41 14 
+
+Send Packet: ====>   12:05:52
+0 w b 2 3 f f f f f f f f f f a a 0 8 7 7 8 f 6 9 f f f f f f f f f f b b 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 00 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 04 41 01 
+
+Send Packet: ====>   12:05:52
+0 s 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 00 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 16 4B 01 01 04 00 88 04 31 CC 7D 95 
+
+Send Packet: ====>   12:05:52
+0 l 2 0 f f B f f f f f f f f f f b b 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 00 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 04 41 00 
+
+Send Packet: ====>   12:05:52
+0 w b 2 1 0 0 0 0 0 0 0 4 f f f f f f f b 0 0 0 0 0 0 0 4 2 1 d e 2 1 d e 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 00 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 04 41 00 
+
+Send Packet: ====>   12:05:52
+0 r 2 1 
+
+Receive Packet: <==== 12:05:52
+FF 00 00 00 
+
+Receive Packet: <==== 12:05:53
+FF 00 00 04 41 02 
+Ready =======================

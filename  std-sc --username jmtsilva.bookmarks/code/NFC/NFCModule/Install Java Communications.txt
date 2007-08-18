@@ -1,0 +1,6 @@
+Instalação da API de Comunicações Java
+
+	- <jdk> designa a directoria raiz onde está instalado o JDK
+	- Colocar a biblioteca win32com.dll na directoria <jdk>\jre\bin 
+	- Colocar o ficheiro comm.jar na directoria <jdk>\jre\lib\ext. 
+	- Colocar o ficheiro javax.comm.properties na directoria <jdk>\jre\lib
