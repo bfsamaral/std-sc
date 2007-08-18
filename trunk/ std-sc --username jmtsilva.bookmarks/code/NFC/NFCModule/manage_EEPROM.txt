@@ -1,0 +1,23 @@
+Manage EEPROM:
+	
+	Login: 					0ali ffffffff
+	
+	------Write MIFARE Authentication Key A:	0aek 05 a ffffffffffaa
+	Write MIFARE Authentication Key B:	0aek 05 b ffffffffffff
+	
+	Change PIN Code (CAREFULL):		0aep ffffffff
+	
+	Logout:					0alo
+	
+	
+Work with the tag:
+	Select card:				0s
+	
+	MIFARE Login:				0l 04 05
+	
+	Read Block:				0r 04
+	
+	Write Block:				0wb 04 00112233445566778899001122334455
+
+
+Write in the trailer is a simple write after a bit coding calculation
