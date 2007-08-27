@@ -5,10 +5,12 @@
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{957DF1FA-8101-4216-8FB8-8DAA58D89F0E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ParaMedDesigner</RootNamespace>
     <AssemblyName>ParaMedDesigner</AssemblyName>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +46,9 @@
     <Compile Include="Info.cs" />
     <Compile Include="InfoControl.cs" />
     <Compile Include="InfoHotSpot.cs" />
+    <Compile Include="MyControlHotSpot.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MyControlLabel.cs">
       <SubType>Component</SubType>
     </Compile>

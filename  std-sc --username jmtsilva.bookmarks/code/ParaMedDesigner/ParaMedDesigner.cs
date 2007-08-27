@@ -38,41 +38,44 @@ namespace ParaMedDesigner
 
         private void tabPage1_DragEnter(object sender, DragEventArgs e)
         {
+            Silver.UI.ToolBoxItem item = (Silver.UI.ToolBoxItem)e.Data.GetData("Silver.UI.ToolBoxItem");
+            if (item == null) return;
+            if (item.Caption.Equals("HotSpot")) return;
+
             e.Effect = DragDropEffects.Move;
         }
 
         private void tabPage1_DragDrop(object sender, DragEventArgs e)
         {
+            Silver.UI.ToolBoxItem item = (Silver.UI.ToolBoxItem)e.Data.GetData("Silver.UI.ToolBoxItem");
+            if (item.Caption.Equals("HotSpot")) return;
+            
             // JMTS parse the sender to the object and build infocontrol with img
-            MyControlLabel infoControl = new MyControlLabel(e.X - 300, e.Y - 300, 80, 20);
-            //infoControl.Load(@"E:\______________MYDOCS\PFC\google_prj\code\ParaMedDesigner\images\label.bmp");
-            infoControl.Click += new EventHandler(infoControl_Click);
-            //infoControl.MouseMove += new MouseEventHandler(infoControl_MouseDown);
-
-            tabPage1.Controls.Add(infoControl);
-
+            //Console.WriteLine("coord: " + e.X + " " + e.Y);
+            Point clientCoords = PointToClient(new Point(e.X, e.Y));
+            //Console.WriteLine("client coord: " + clientCoords.X + " " + clientCoords.Y);
+            if (item.Caption.Equals("Label")) 
+                new MyControlLabel(clientCoords.X - 130, clientCoords.Y - 50, 80, 20, tabPage1, propertyGrid1);
+            else
+                if (item.Caption.Equals("EditBox")) 
+                    new MyControlEditBox(clientCoords.X - 130, clientCoords.Y - 50, 80, 20, tabPage1, propertyGrid1);
+            //Console.WriteLine("res: " + (clientCoords.X - 130) + " " + (clientCoords.Y-50));
         }
-
-        void infoControl_MouseDown(object sender, MouseEventArgs e)
-        {
-            ((MyControlLabel)sender).Location = new Point(e.X, e.Y);
-        }
-
-        void infoControl_Click(object sender, EventArgs e)
-        {
-            propertyGrid1.SelectedObject = ((IMyControl)sender).getInfoControl();
-        }
-
+        
         private void panel1_DragDrop(object sender, DragEventArgs e)
         {
-            MyControlEditBox hsControl = new MyControlEditBox(e.X - 550, e.Y - 270, 80, 20);
-            //hsControl.Load(@"E:\______________MYDOCS\PFC\google_prj\code\ParaMedDesigner\images\hotSpot_green.gif");
-            hsControl.Click += new EventHandler(infoControl_Click);
-            panel1.Controls.Add(hsControl);
+            //String []str = e.Data.GetFormats();
+            Silver.UI.ToolBoxItem item = (Silver.UI.ToolBoxItem)e.Data.GetData("Silver.UI.ToolBoxItem");
+            if (!item.Caption.Equals("HotSpot")) return;
+            MyControlHotSpot hsControl = new MyControlHotSpot(e.X - 550, e.Y - 270, 80, 20, panel1, propertyGrid1);
         }
 
         private void panel1_DragEnter(object sender, DragEventArgs e)
         {
+            Silver.UI.ToolBoxItem item = (Silver.UI.ToolBoxItem)e.Data.GetData("Silver.UI.ToolBoxItem");
+            if (item == null) return;
+            if (!item.Caption.Equals("HotSpot")) return;
+
             e.Effect = DragDropEffects.Move;
         }
 

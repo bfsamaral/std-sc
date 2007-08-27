@@ -14,8 +14,10 @@ namespace ParaMedDesigner
     public class MyControlLabel: Label, IMyControl
     {
         private InfoControl infoControl;
+        private TabPage owner;
+        private PropertyGrid propertyGrid;
 
-        public MyControlLabel(int x, int y, int width, int height)
+        public MyControlLabel(int x, int y, int width, int height, TabPage tab, PropertyGrid propGrid)
         {
             this.BackColor = Color.Red;
             infoControl = new InfoControl(this);
@@ -23,6 +25,30 @@ namespace ParaMedDesigner
             infoControl.Y = y;
             infoControl.Width = width;
             infoControl.Height = height;
+
+            owner = tab;
+            propertyGrid = propGrid;
+
+            this.Click += new EventHandler(updateProperties);
+
+            owner.Controls.Add(this);
+
+            // context menu
+            ContextMenu cm = new ContextMenu();
+            MenuItem removeItem = new MenuItem("&Remove", new EventHandler(removeControl));
+            cm.MenuItems.Add(removeItem);
+            this.ContextMenu = cm;
+        }
+
+        void removeControl(object sender, EventArgs e)
+        {
+            owner.Controls.Remove(this);
+            propertyGrid.SelectedObject = null;
+        }
+
+        private void updateProperties(object sender, EventArgs e)
+        {
+            propertyGrid.SelectedObject = ((IMyControl)sender).getInfoControl();
         }
 
         /*
