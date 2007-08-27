@@ -15,7 +15,7 @@ namespace ParaMedDesigner
         //------------------------------------------------------
         // NAME
         //------------------------------------------------------
-        private String name;
+        protected String name;
         [XmlAttribute("Name")]
         public String Name
         {
@@ -30,7 +30,7 @@ namespace ParaMedDesigner
         //------------------------------------------------------
         // ID
         //------------------------------------------------------
-        private int id;
+        protected int id;
         [XmlAttribute("id")]
         public int Id
         {
@@ -41,7 +41,7 @@ namespace ParaMedDesigner
         //------------------------------------------------------
         // POSITION: X, Y
         //------------------------------------------------------
-        private int x;
+        protected int x;
         [XmlAttribute("x")]
         [CategoryAttribute("Coordinates")]
         public int X
@@ -53,7 +53,7 @@ namespace ParaMedDesigner
                 owner.Location = new Point(x, ycoord);
             }
         }
-        private int y;
+        protected int y;
         [XmlAttribute("y")]
         [CategoryAttribute("Coordinates")]
         public int Y
@@ -70,7 +70,7 @@ namespace ParaMedDesigner
         //------------------------------------------------------
         // DIMENSIONS: WIDTH, HEIGHT
         //------------------------------------------------------
-        private int width;
+        protected int width;
         [XmlAttribute("width")]
         [CategoryAttribute("Position")]
         public int Width
@@ -83,7 +83,7 @@ namespace ParaMedDesigner
             }
         }
 
-        private int heigth;
+        protected int heigth;
         [XmlAttribute("height")]
         [CategoryAttribute("Position")]
         public int Height
