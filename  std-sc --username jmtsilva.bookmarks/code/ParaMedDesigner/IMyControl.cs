@@ -8,5 +8,8 @@ namespace ParaMedDesigner
     {
         InfoControl getInfoControl();
         void setInfoControl(InfoControl infoControl);
+
+        String SerializeObject();
+        Object DeserializeObject(String pXmlizedString);
     }
 }
