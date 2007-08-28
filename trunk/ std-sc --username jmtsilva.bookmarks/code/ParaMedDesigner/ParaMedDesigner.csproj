@@ -5,7 +5,7 @@
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{957DF1FA-8101-4216-8FB8-8DAA58D89F0E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ParaMedDesigner</RootNamespace>
     <AssemblyName>ParaMedDesigner</AssemblyName>
@@ -46,13 +46,23 @@
     <Compile Include="Info.cs" />
     <Compile Include="InfoControl.cs" />
     <Compile Include="InfoHotSpot.cs" />
+    <Compile Include="MyControl.cs" />
+    <Compile Include="MyControlCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControlComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControlPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControlTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MyControlHotSpot.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MyControlLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MyControlEditBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ParaMedDesigner.cs">
@@ -86,9 +96,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RectTracker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\backTool.gif" />
+    <Folder Include="images\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

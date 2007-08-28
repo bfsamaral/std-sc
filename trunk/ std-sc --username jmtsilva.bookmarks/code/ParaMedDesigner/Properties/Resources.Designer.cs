@@ -59,12 +59,5 @@ namespace ParaMedDesigner.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap backTool {
-            get {
-                object obj = ResourceManager.GetObject("backTool", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

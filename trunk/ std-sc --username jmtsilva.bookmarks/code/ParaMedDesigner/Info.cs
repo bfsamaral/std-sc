@@ -53,6 +53,11 @@ namespace ParaMedDesigner
                 owner.Location = new Point(x, ycoord);
             }
         }
+        public void setX(int newValue)
+        {
+            x = newValue;
+        }
+
         protected int y;
         [XmlAttribute("y")]
         [CategoryAttribute("Coordinates")]
@@ -65,6 +70,11 @@ namespace ParaMedDesigner
                 int xcoord = owner.Location.X;
                 owner.Location = new Point(y, xcoord);
             }
+        }
+
+        public void setY(int newValue)
+        {
+            y = newValue;
         }
 
         //------------------------------------------------------
@@ -82,6 +92,10 @@ namespace ParaMedDesigner
                 owner.Width = width;
             }
         }
+        public void setWidth(int newValue) 
+        {
+            width = newValue;
+        }
 
         protected int heigth;
         [XmlAttribute("height")]
@@ -94,8 +108,11 @@ namespace ParaMedDesigner
                 owner.Height = heigth;
             }
         }
-	
-	
+
+        public void setHeight(int newValue)
+        {
+            heigth = newValue;
+        }
 
     }
 }
