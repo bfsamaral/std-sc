@@ -11,6 +11,7 @@ namespace ParaMedDesigner
     {
         // multiple inheritance performed with composition
         private MyControl mControl;
+        public bool mControlNotNull() { return mControl != null; }
 
         public MyControlLabel(int x, int y, int width, int height, TabPage tab, PropertyGrid propGrid)
         {
@@ -18,6 +19,7 @@ namespace ParaMedDesigner
 
             // specific properties
             this.BackColor = Color.Green;
+            mControl.getInfoControl().Type = "Label";
 
             
         }
@@ -47,15 +49,8 @@ namespace ParaMedDesigner
             mControl.setInfoControl(infControl);
         }
 
-
-        public string SerializeObject()
+        public void updateItems()
         {
-            return mControl.SerializeObject();
-        }
-
-        public object DeserializeObject(string pXmlizedString)
-        {
-            return mControl.DeserializeObject(pXmlizedString);
         }
 
     }

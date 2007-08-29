@@ -30,7 +30,6 @@ namespace ParaMedDesigner
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParaMedDesigner));
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -39,17 +38,9 @@ namespace ParaMedDesigner
             this.panel1 = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.propertyGrid1.Location = new System.Drawing.Point(610, 31);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(220, 350);
-            this.propertyGrid1.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -59,7 +50,7 @@ namespace ParaMedDesigner
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(830, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(839, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -90,6 +81,7 @@ namespace ParaMedDesigner
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(256, 350);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // toolBox1
             // 
@@ -141,18 +133,28 @@ namespace ParaMedDesigner
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.propertyGrid1.Location = new System.Drawing.Point(616, 25);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(223, 353);
+            this.propertyGrid1.TabIndex = 5;
+            this.propertyGrid1.Paint += new System.Windows.Forms.PaintEventHandler(this.HELP);
+            // 
             // ParaMedDesigner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 378);
+            this.ClientSize = new System.Drawing.Size(839, 378);
+            this.Controls.Add(this.propertyGrid1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.propertyGrid1);
+            this.Location = new System.Drawing.Point(500, 700);
             this.Name = "ParaMedDesigner";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ParaMedDesigner_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -164,7 +166,6 @@ namespace ParaMedDesigner
 
         #endregion
 
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -173,6 +174,7 @@ namespace ParaMedDesigner
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PropertyGrid propertyGrid1;
     }
 }
 

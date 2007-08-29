@@ -49,8 +49,11 @@ namespace ParaMedDesigner
             get { return x; }
             set { 
                 x = value;
-                int ycoord = owner.Location.Y;
-                owner.Location = new Point(x, ycoord);
+                if(owner != null)
+                {
+                    int xcoord = owner.Location.X;
+                    owner.Location = new Point(x, xcoord);
+                }
             }
         }
         public void setX(int newValue)
@@ -67,8 +70,11 @@ namespace ParaMedDesigner
             set 
             { 
                 y = value;
-                int xcoord = owner.Location.X;
-                owner.Location = new Point(y, xcoord);
+                if (owner != null)
+                {
+                    int xcoord = owner.Location.X;
+                    owner.Location = new Point(y, xcoord);
+                }
             }
         }
 
@@ -89,7 +95,10 @@ namespace ParaMedDesigner
             set 
             {
                 width = value;
-                owner.Width = width;
+                if (owner != null)
+                {
+                    owner.Width = width;
+                }
             }
         }
         public void setWidth(int newValue) 
@@ -105,7 +114,10 @@ namespace ParaMedDesigner
             get { return heigth; }
             set {
                 heigth = value;
-                owner.Height = heigth;
+                if (owner != null)
+                {
+                    owner.Height = heigth;
+                }
             }
         }
 
