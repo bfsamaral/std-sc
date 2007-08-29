@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 
@@ -35,14 +37,17 @@ import interfaces.IParaMedView;
 
 public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 
+	private Dimension screenSize;
+
 	private ParaMedControllerProxy2SE paraMedController;
 	
-	private JPanel centerPanel = new JPanel();
-	
+	private InfoPanel infoPanel;
+	private JMenuBar menubar = new JMenuBar();
+	private JToolBar toolbar = new JToolBar();
+
 	public ParaMed2SEGUI() {
 		paraMedController = new ParaMedControllerProxy2SE(this);
 
-		/*
 		// set look and feel	
 		try {
 			UIManager.setLookAndFeel( new SubstanceLookAndFeel());
@@ -51,12 +56,14 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		*/
 		
 		setLayout(new BorderLayout());
 		
-		initializeComponents();
-		
+		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
+        buildAndAddMenu();
+		buildAndAddToolBar();
+		buildAndAddInfoPanel();
 		// misc last things
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,84 +72,31 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
         setVisible(true);
         setExtendedState(MAXIMIZED_BOTH);
         setResizable(true);
+        setAlwaysOnTop(true);
 	}
 	
-	private void initializeComponents() {
-		// build the Menu and add it to the frame
-        buildAndAddMenu();
-
-		// build the toolbar
-		buildAndAddToolBar();
-
-		// add the panel 
-        getContentPane().add(centerPanel, BorderLayout.CENTER);
-		
-        // build and add the tab editor
-        buildAndAddTabEditor();
-        
-        // build and add the PointerEditor
-        buildAndAddSkeletonPicker();
-        
-    }
+	private void buildAndAddInfoPanel() 
+	{
+		infoPanel = new InfoPanel(new Dimension( (int)(screenSize.width * 0.58) , (int)(screenSize.height * 0.85)));
+		infoPanel.loadXML("D:\\Documentacao\\ano3-verao_2006_2007\\PFC\\SVN_repos_google\\code\\ParaMedApp\\xml4config.xml");
+		//infoPanel.setPreferredSize();
+		getContentPane().add(infoPanel, BorderLayout.CENTER);
+	}
 	
 	private void buildAndAddToolBar() {
-		JToolBar toolbar = new JToolBar();
 		// adding buttons to the toolbar
 		toolbar.add(makeNavigationButton("New24.gif", "", "New", ""));
 		toolbar.add(makeNavigationButton("Open24.gif", "", "Open", ""));
 		toolbar.add(makeNavigationButton("Save24.gif", "", "Save", ""));
 		toolbar.add(makeNavigationButton("Close24.gif", "", "Close", ""));
 		toolbar.add(makeNavigationButton("Find24.gif", "", "Find", ""));
-		toolbar.add(makeNavigationButton("Help24.gif", "", "Help", ""));
-		
-		//toolbar.setForeground(Color.RED);
-		//toolbar.setBackground(Color.GREEN);
+		toolbar.add(makeNavigationButton("Help24.gif", "", "Help", ""));		
 		toolbar.setFloatable(false);
 		toolbar.setRollover(true);
 		getContentPane().add(toolbar, BorderLayout.PAGE_START);
 	}
 
-	private void buildAndAddTabEditor() {
-		JTabbedPane tabs = new JTabbedPane();
-		tabs.setPreferredSize(new Dimension(750, 680));
-		tabs.addTab("Cabeça", new ImageIcon(("resources\\symptoms\\head.gif")), null);
-		tabs.addTab("Coraçao", new ImageIcon(("resources\\symptoms\\heart.gif")), null);
-		tabs.addTab("Pé", new ImageIcon(("resources\\symptoms\\foot.gif")), null);
-		tabs.addTab("Mão", new ImageIcon(("resources\\symptoms\\hand.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		tabs.addTab("Pulmao", new ImageIcon(("resources\\symptoms\\pulmao.gif")), null);
-		
-		
-		//add(tabs);
-		centerPanel.add(tabs);
-	}
-	
-	private void buildAndAddSkeletonPicker() {
-		SkeletonPicker sp = new SkeletonPicker();
-		sp.addHotSpot(68, 6);
-		sp.addHotSpot(55, 55);
-		sp.addHotSpot(30, 104);
-		sp.addHotSpot(108, 104);
-		sp.addHotSpot(70, 150);
-		sp.addHotSpot(40, 200);
-		sp.addHotSpot(88, 200);
-
-		sp.addBackground();
-		centerPanel.add(sp);
-		//getContentPane().add(sp);
-	}
-
-
-
 	private void buildAndAddMenu() {
-		JMenuBar menuBar = new JMenuBar();
 		JMenuItem auxMenuItem;
 		JMenu auxMenu;
 		
@@ -162,14 +116,14 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 		auxMenuItem = new JMenuItem("Exit", new ImageIcon("resources\\file_exit.gif"));
 		auxMenuItem.addActionListener(paraMedController);
 		auxMenu.add(auxMenuItem);
-		menuBar.add(auxMenu);
+		menubar.add(auxMenu);
 		
 		// Find Menu
 		auxMenu = new JMenu("Find");
 		auxMenuItem = new JMenuItem("Patient", new ImageIcon("resources\\find_patient.gif"));
 		auxMenuItem.addActionListener(paraMedController);
 		auxMenu.add(auxMenuItem);
-		menuBar.add(auxMenu);
+		menubar.add(auxMenu);
 		
 
 		// Sync Menu
@@ -180,7 +134,7 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 		auxMenuItem = new JMenuItem("All", new ImageIcon("resources\\sync_all.gif"));
 		auxMenuItem.addActionListener(paraMedController);
 		auxMenu.add(auxMenuItem);
-		menuBar.add(auxMenu);
+		menubar.add(auxMenu);
 		
 		//	Send Menu
 		auxMenu = new JMenu("Send");
@@ -190,7 +144,7 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 		auxMenuItem = new JMenuItem("All", new ImageIcon("resources\\send_all.gif"));
 		auxMenuItem.addActionListener(paraMedController);
 		auxMenu.add(auxMenuItem);
-		menuBar.add(auxMenu);
+		menubar.add(auxMenu);
 		
 		//	Sync Menu
 		auxMenu = new JMenu("Preferences");
@@ -200,7 +154,7 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 		auxMenuItem = new JMenuItem("All", new ImageIcon("resources\\env_all.gif"));
 		auxMenuItem.addActionListener(paraMedController);
 		auxMenu.add(auxMenuItem);
-		menuBar.add(auxMenu);
+		menubar.add(auxMenu);
 		
 		//	Help Menu
 		auxMenu = new JMenu("Help");
@@ -210,9 +164,9 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 		auxMenuItem = new JMenuItem("About", new ImageIcon("resources\\help_about.gif"));
 		auxMenuItem.addActionListener(paraMedController);
 		auxMenu.add(auxMenuItem);
-		menuBar.add(auxMenu);
+		menubar.add(auxMenu);
 		
-		setJMenuBar(menuBar);
+		setJMenuBar(menubar);
 	}
 	
 	protected JButton makeNavigationButton(
@@ -236,5 +190,4 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 	public void terminateApplication() {
 		this.dispose();
 	}
-	
 }
