@@ -6,6 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
+using System.Drawing;
+
 namespace ParaMedDesigner
 {
     public partial class ParaMedDesigner : Form
@@ -65,23 +70,108 @@ namespace ParaMedDesigner
             //if(saveFileDialog1.ShowDialog() != DialogResult.OK) return;
             //String fileName = saveFileDialog1.FileName;
 
-            for (int i = 0; i < tabControl1.Controls.Count; ++i )
+            // clean
+            rootInfo.removeAllInfoHotSpots();
+
+            // construct object to be serialized with valued data
+            for(int hsIdx = 0; hsIdx < panel1.Controls.Count; ++hsIdx)
             {
-                for(int j=0; j<((TabPage)tabControl1.Controls[i]).Controls.Count ; ++j)
+                MyControlHotSpot hs = (MyControlHotSpot)panel1.Controls[hsIdx];
+                InfoHotSpot hsInfo = hs.getInfoHotSpot();
+                TabPage mappedTabPage = hs.getTabPage();
+                for(int ctrlIdx=0; ctrlIdx<mappedTabPage.Controls.Count; ++ctrlIdx)
                 {
-                    Control mControl = (Control)((TabPage)tabControl1.Controls[i]).Controls[j];
-                    String type = mControl.GetType().ToString();
-                    if (!mControl.GetType().ToString().Equals("RectTrackerSharp.RectTracker"))
+                    Control currControl = mappedTabPage.Controls[ctrlIdx];
+                    String type = currControl .GetType().ToString();
+                    if (!currControl.GetType().ToString().Equals("RectTrackerSharp.RectTracker"))
                     {
-                        String res = ((IMyControl)mControl).SerializeObject();
+                        hsInfo.appendInfoControl( ((IMyControl)currControl).getInfoControl() );
                     }
                 }
+                rootInfo.appendInfoHotSpot(hsInfo);
             }
+            serializedObject = SerializeObject();
         }
+
+        
 
         private void openAndRegenerateXML(object sender, EventArgs e)
         {
             //if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+
+            InfoRoot objectsInfo = (InfoRoot)DeserializeObject(serializedObject);
+
+            //reconstruct the objects
+            for(int i = 0; i<objectsInfo.infoHotSpots.Count; ++i)
+            {
+                // reconstruct hotspot
+                InfoHotSpot infohs = (InfoHotSpot)objectsInfo.infoHotSpots[i];
+                new MyControlHotSpot(panel1, propertyGrid1, tabControl1, infohs);               
+            }
+        }
+
+        //-----------------------------------------------------------------
+        private InfoRoot rootInfo = new InfoRoot();
+        private String serializedObject;
+
+        private String SerializeObject()
+        {
+            String XmlizedString = null;
+            try
+            {
+                MemoryStream memoryStream = new MemoryStream();
+                XmlSerializer xs = new XmlSerializer(typeof(InfoRoot));
+                XmlTextWriter xmlTextWriter = new XmlTextWriter(memoryStream, Encoding.UTF8);
+                xs.Serialize(xmlTextWriter, rootInfo);
+                memoryStream = (MemoryStream)xmlTextWriter.BaseStream;
+                XmlizedString = UTF8ByteArrayToString(memoryStream.ToArray());
+            } catch (Exception ex)
+            {
+                String sss = ex.Message;
+            }
+            return XmlizedString;
+        }
+
+        private Object DeserializeObject(String pXmlizedString)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(InfoRoot));
+            MemoryStream memoryStream = new MemoryStream(StringToUTF8ByteArray(pXmlizedString));
+            XmlTextWriter xmlTextWriter = new XmlTextWriter(memoryStream, Encoding.UTF8);
+            return xs.Deserialize(memoryStream);
+        }
+
+        // helper method
+        private String UTF8ByteArrayToString(Byte[] characters)
+        {
+            UTF8Encoding encoding = new UTF8Encoding();
+            String constructedString = encoding.GetString(characters);
+            return (constructedString);
+        }
+
+        // helper method
+        private Byte[] StringToUTF8ByteArray(String pXmlString)
+        {
+            UTF8Encoding encoding = new UTF8Encoding();
+            Byte[] byteArray = encoding.GetBytes(pXmlString);
+            return byteArray;
+        }
+
+        private int i = 0;
+        private void HELP(object sender, PaintEventArgs e)
+        {
+            if (tabControl1.SelectedTab == null) return;
+            // update all items for controls
+            for (int i = 0; i < tabControl1.SelectedTab.Controls.Count; ++i)
+            {
+                Control currControl = tabControl1.SelectedTab.Controls[i];
+                if (!currControl.GetType().ToString().Equals("RectTrackerSharp.RectTracker"))
+                    ((IMyControl)currControl).updateItems();
+            }
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            propertyGrid1.SelectedObject = null;
         }
 
     }

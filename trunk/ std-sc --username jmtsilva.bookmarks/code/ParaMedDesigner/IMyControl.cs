@@ -9,7 +9,9 @@ namespace ParaMedDesigner
         InfoControl getInfoControl();
         void setInfoControl(InfoControl infoControl);
 
-        String SerializeObject();
-        Object DeserializeObject(String pXmlizedString);
+        // added because of a combobox event problem!! deriva de list e n de control!! -- stupid event
+        bool mControlNotNull();
+
+        void updateItems();
     }
 }
