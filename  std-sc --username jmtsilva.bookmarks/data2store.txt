@@ -1,0 +1,80 @@
+//-------------------------------------------------------------------------------
+// DATA TO STORE
+//-------------------------------------------------------------------------------
+<pacient>
+	<basicData>
+    <!-- TOTAL = 213 -->
+    <userData>
+      <!-- TOTAL = 66 + 9(controlo) =  75 -->
+      <GUID id="1" sz="32">C2FEEEAC-CFCD-11D1-8B05-00600806D9B6</GUID> <!-- 32 -->
+		  <name id="2" sz="25">Jose das couves</name>
+		  <bi id="3" sz="9">112233445</bi>
+    </userData>
+		
+		<basicMedicalData>
+		  <!-- TOTAL = 112 + 26 = 138 -->
+		  <pressaoArterialMax id="4" sz="2">12</pressaoArterialMax>  <!-- siestolica -->
+		  <pressaoArterialMin id="5" sz="2">7</pressaoArterialMin>   <!-- diestolica -->
+      <pulsacao id="6" sz="3">127</pulsacao>
+      <diabetesLevel id="7" sz="3">110</diabetesLevel>              <!-- 110 mg per dl -->
+      <bloodType id="8" sz="1">1</bloodType>                        <!-- a+  e 1 (tabela com codigos)-->
+      <freeText4Description id="10" sz="50">levantou-se e bateu com os cornos na mesa de cabeceira</freeText4Description>
+      <gravity id="11" sz="1">1</gravity>     <!-- na realiadede e a triagem em si (tabela de codigos)-->
+    </basicMedicalData>
+	</basicData>
+
+	<moreData>
+    <!-- 720 - 213 = 507/"50" = 10  -->
+		<coracao>
+			<description id="21" sz="40">info2Value</description>
+		</tab1Name>
+
+		<tab2Name>
+			<description id="22">info2Value</description>
+		</tab2Name>
+		
+		<tab2Name>
+			<description id="23">info2Value</description>
+		</tab2Name>
+		
+		<!-- more tabs can be added, so this is expandable -->
+	</moreData>
+</pacient>
+
+//-------------------------------------------------------------------------------
+// exmplo doente 1
+//-------------------------------------------------------------------------------
+
+basic-data:
+
+1=C2FEEEAC-CFCD-11D1-8B05-00600806D9B6, 2=Jose das couves, 3-112233445, 4=12, 5=7,  6=127, 7=100, 8=a+, 9=diabetes muito altos, 10=levantou-se e bateu com os cornos na mesa de cabeceira, 11=1
+21=12345678901234567890123456789012345678901234567890123456789012345678901234567890,
+22=12345678901234567890123456789012345678901234567890123456789012345678901234567890,
+23=12345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+or store it in a ZIP format
+
+//-------------------------------------------------------------------------------
+// XML FOR CONFIGURATION
+//-------------------------------------------------------------------------------
+<hotSpots>
+  	<spot name = "coracao" img="heart.gif">
+      <position x="10" y="10"/>
+      <controls>
+        <control type="static" id="21" sz="40" x="10" y="10">Small description: </control>
+        <control type="text" name="description" id="22" sz="40" x="10" y="10">here, please<control>
+        <control type="static" id="21" sz="40" x="10" y="10">Small description: </description>
+        <control type="combo" name="description" id="23" sz="40" x="10" y="10">defaultValue</description>
+          <value>1</value>
+          <value>2</value>
+          <value>3</value>
+        </control>
+      </controls>
+		</spot>
+</hotSpots>
+
+
+
+
+
+

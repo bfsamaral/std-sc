@@ -1,0 +1,52 @@
+------------------------------------------------------------------------
+NOTA: por cada 48bytes temos de autenticacar o bloco de depois escrever
+------------------------------------------------------------------------
+
+INITIAL INFO
+-------------------------
+1 byte - ID (Obrigatório)    -- podemos juntar depois o id do pda para termos ids diferentes
+
+1byte - Pressão arterial     -- podemos colocar niveis
+
+3bits - Tipo de sangue       -- sao 8 os tipos de sangue
+
+5bits - Descrição do estado  -- da nos para ter 32 estados
+
+1 byte - Boneco com o corpo para seleccionar regiões afectadas  -- 1 bit por cada regiao 
+
+8bytes - BI pode ser texto ou unsigned qq coisa!!!
+
+EXTRA-INFO (OBSERVACOES)
+-------------------------
+texto(20chars) - Observações (p.ex. Alergias ou algo)  -- tb podemos ter bits para indicar varios tipos e deixar menos chars para texto livre
+
+
+EXTRA-INFO (dETALHES REGIAO 1)
+-----------------------------
+...
+
+
+EXTRA-INFO (dETALHES REGIAO 2)
+-----------------------------
+...
+
+
+EXTRA-INFO (dETALHES REGIAO N)
+-----------------------------
+...
+
+
+
+** Nome  -- pode ser desprezado pq tendo em conta o BI podemos consultar uma BD exterior
+
+
+extrainfos = 720.000/(48b+48b) = 7500 areas
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+|                     |                              |                                    | |                                        | 
+|                     |                              |                                    | |                                        |  
+|     initial info    |    extra-info (observacoes)  |  extra-info (detalhes de regiao 1) | |  extra-info (detalhes de regiao N)     |                        |                     |                              |                                    | |                                        | 
+|        (48b)        |           (48b)              |                (48b)               | |                   (48b)                | 
+|                     |                              |                                    | |                                        | 
+--------------------------------------------------------------------------------------------------------------------------------------
