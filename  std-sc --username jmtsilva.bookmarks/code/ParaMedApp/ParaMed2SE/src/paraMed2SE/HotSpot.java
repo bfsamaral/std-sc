@@ -8,14 +8,22 @@ import javax.swing.JLabel;
 import javax.swing.Spring;
 import javax.swing.SpringLayout;
 
-public class HotSpot extends JLabel {
+public class HotSpot extends JLabel implements HotSpotNotifier {
 	private enum State {ENABLED, DISABLED};
+	 
+	private int id;
+	
+	private HotSpotListener listener;
+	
+	private HotSpot me;
 	
 	private final String enabledImg = "resources\\hotSpot_red.gif";
 	private final String disabledImg = "resources\\hotSpot_green.gif";
 	private State state = State.DISABLED;
 	
-	public HotSpot(SpringLayout currLayout, int x, int y) {
+	public HotSpot(SpringLayout currLayout, int x, int y, int hsid) {
+		id = hsid;
+		me = this;
 		setLayout(new SpringLayout());
 		currLayout.getConstraints(this).setWidth(Spring.constant(30));
 		currLayout.getConstraints(this).setHeight(Spring.constant(30));
@@ -27,7 +35,15 @@ public class HotSpot extends JLabel {
 		{
 
 			public void mouseClicked(MouseEvent arg0) {
-				toggleState();
+				if (arg0.getClickCount() == 2 )
+				{
+					//toggleState();
+					listener.hotSpotClicked(id, me);
+				}
+				else
+				{
+					//listener.hotSpotClicked(id);
+				}
 			}
 
 			public void mouseEntered(MouseEvent arg0) {
@@ -62,5 +78,9 @@ public class HotSpot extends JLabel {
 			setIcon(new ImageIcon(disabledImg));
 		}
 	}
-	
+
+	public void addHotSpotListener(HotSpotListener hslistener) 
+	{
+		listener = hslistener;
+	}
 }
