@@ -1,0 +1,83 @@
+<hotSpots>
+  <spot name = "identification" img="person.gif">
+      <position x="-1" y="-1"/>
+      <controls>
+        <control type="static" id="0" sz="25" x="10" y="10" value="Name"></control>
+        <control type="edit"   id="1" sz="25" x="140" y="10" value=""></control>
+        
+        <control type="static" id="0" sz="25" x="10" y="50" value="BI"></control>
+        <control type="edit"   id="2" sz="9" x="140" y="50" value=""></control>
+        
+        <control type="static" id="0" sz="25" x="10" y="90" value="pressaoArterialMin"></control>
+        <control type="edit"   id="2" sz="2" x="140" y="90" value=""></control>
+        
+        <control type="static" id="0" sz="25" x="10" y="130" value="pressaoArterialMax"></control>
+        <control type="edit"   id="2" sz="2" x="140" y="130" value=""></control>
+        
+        <control type="static" id="0" sz="25" x="10" y="170" value="pulsacao"></control>
+        <control type="edit"   id="2" sz="3" x="140" y="170" value=""></control>
+        
+        <control type="static" id="0" sz="25" x="10" y="210" value="diabetes"></control>
+        <control type="edit"   id="2" sz="3" x="140" y="210" value=""></control>
+
+        <control type="static" id="0" sz="25" x="10" y="250" value="Tipo de Sangue"></control>
+        <control type="combo"   id="2" sz="1" x="140" y="250" value="">
+            <value id="1">NOT CHOOSEN</value>
+            <value id="1">O+</value>
+            <value id="2">A+</value>
+            <value id="3">B+</value>
+            <value id="3">AB++</value>
+            <value id="3">O-</value>
+            <value id="3">A-+</value>
+            <value id="3">B-</value>
+            <value id="3">AB-</value>
+        </control>
+
+        <control type="static" id="0" sz="25" x="10" y="290" value="Triagem ID"></control>
+        <control type="combo"  id="2" sz="1" x="140" y="290" value="">
+            <value id="1">NOT CHOOSEN</value>
+            <value id="1">1</value>
+            <value id="2">2</value>
+            <value id="3">3</value>
+            <value id="3">4</value>
+            <value id="3">5</value>
+        </control>
+
+        <control type="static" id="0" sz="25" x="10" y="400" value="Comentarios"></control>
+        <control type="text"   id="2" sz="50" x="140" y="400" value=""></control>
+
+      </controls>
+   </spot>
+   <spot name = "coracao" img="heart.gif">
+      <position x="20" y="10"/>
+      <controls>
+        <control type="check" id="19" sz="40" x="100" y="2" value="1"></control>
+        <control type="static" id="19" sz="40" x="2" y="2" value="Damage here?"></control>
+        <control type="static" id="21" sz="40" x="10" y="250" value="Small description: "></control>
+        <control type="edit" name="description" id="22" sz="40" x="200" y="200" value="here, please"></control>
+        <control type="static" id="23" sz="100" x="100" y="100" value="mall description:"></control>
+        <control type="combo" name="description" id="24" sz="40" x="10" y="300" value="defaultValue">
+          <value>sangue a</value>
+          <value>sangue o</value>
+          <value>sangue +</value>
+        </control>
+      </controls>
+   </spot>
+   <spot name = "pulmao" img="pulmao.gif">
+      <position x="50" y="50"/>
+      <controls>
+        <control type="check" id="19" sz="40" x="100" y="2" value="1"></control>
+        <control type="static" id="19" sz="40" x="2" y="2" value="Damage here?"></control>
+        <control type="static" id="26" sz="40" x="10" y="100" value="DOIS"></control>
+      </controls>
+   </spot>
+    <spot name = "pubis" img="pulmao.gif">
+      <position x="300" y="300"/>
+      <controls>
+        <control type="static" id="19" sz="40" x="2" y="2" value="ola"></control>
+        <control type="static" id="26" sz="40" x="10" y="100" value="ana"></control>
+        <control type="edit" name="ola ana" id="22" sz="100" x="200" y="200" value="place you name here"></control>
+        
+      </controls>
+   </spot>
+</hotSpots>
