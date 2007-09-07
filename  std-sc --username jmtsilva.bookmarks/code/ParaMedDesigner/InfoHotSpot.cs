@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace ParaMedDesigner
 {
-    [XmlRootAttribute(ElementName = "infoHotSpot", IsNullable = false)]
+    [XmlRootAttribute(ElementName = "spot", IsNullable = false)]
     public class InfoHotSpot: Info
     {
         public InfoHotSpot()
@@ -23,7 +23,7 @@ namespace ParaMedDesigner
         //-------------------------------------
         // serialize purpose
         //-------------------------------------
-        [XmlArray("InfoControl"), XmlArrayItem("InfoControl", typeof(InfoControl))]
+        [XmlArray("InfoControl"), XmlArrayItem("controls", typeof(InfoControl))]
         public ArrayList infoControls = new ArrayList();
 
         public void appendInfoControl(InfoControl infoControl)

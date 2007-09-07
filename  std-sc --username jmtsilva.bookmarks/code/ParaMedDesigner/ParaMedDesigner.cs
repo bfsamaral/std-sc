@@ -105,7 +105,7 @@ namespace ParaMedDesigner
             for(int i = 0; i<objectsInfo.infoHotSpots.Count; ++i)
             {
                 // reconstruct hotspot
-                InfoHotSpot infohs = (InfoHotSpot)objectsInfo.infoHotSpots[i];
+                InfoHotSpot infohs = (InfoHotSpot)objectsInfo.infoHotSpots[i];  
                 new MyControlHotSpot(panel1, propertyGrid1, tabControl1, infohs);               
             }
         }
@@ -142,7 +142,7 @@ namespace ParaMedDesigner
 
         // helper method
         private String UTF8ByteArrayToString(Byte[] characters)
-        {
+        {   
             UTF8Encoding encoding = new UTF8Encoding();
             String constructedString = encoding.GetString(characters);
             return (constructedString);
