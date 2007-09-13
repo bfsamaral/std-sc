@@ -26,7 +26,7 @@ namespace ParaMedDesigner
             this.owner = owner;
             owner.Controls.Add(this);
 
-            Load(@"E:\______________MYDOCS\PFC\google_prj\code\ParaMedDesigner\images\hotSpot_green.gif");
+            Load(@"..\..\images\hotSpot_green.gif");
 
             // context menu
             ContextMenu cm = new ContextMenu();
