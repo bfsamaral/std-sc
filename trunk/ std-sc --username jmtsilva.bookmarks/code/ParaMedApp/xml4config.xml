@@ -49,7 +49,7 @@
       </controls>
    </spot>
    <spot name = "coracao" img="heart.gif">
-      <position x="20" y="10"/>
+      <position x="100" y="400"/>
       <controls>
         <control type="check" id="19" sz="40" x="100" y="2" value="1"></control>
         <control type="static" id="19" sz="40" x="2" y="2" value="Damage here?"></control>
