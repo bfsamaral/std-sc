@@ -1,0 +1,65 @@
+
+
+--------------------------------------------------------------------------------
+CCC
+--------------------------------------------------------------------------------
+WS_CCM
+{
+  CatastropheInfo getCatastrophe(int id);   // codigo da catastrofe transmitido por telefone
+  bool addPacientInfo(StreamInfo info);
+  PatientInfoUpdated getPatientInfo(int GUID);
+}
+
+WS_CA
+{
+  PacientInfo[] getPatientHistory(GUIDPacient guid);
+  bool addPacientInfo(StreamInfo info);
+  DateTime getLastPacientInfoDate();
+}
+
+WS_WEB
+{
+	int getNumberPacients(int idCatrastophe);
+	int getNumberOfDeaths();
+	CatastrophsInfo[] getCatrastophs();
+  CatastropheInfo getCatastrophe(int id);
+  ...
+}
+
+WS_APP_MINING
+{
+	int getNumberPacients(int idCatrastophe);
+	int getNumberOfDeaths();
+  Pacient[] getHistorico(GUIDPacient guid);
+	CatastrophsInfo[] getCatrastophsInfo();
+}
+
+WS_OPERADOR
+{
+  // CRUS operations for all things??
+
+  void addNewCatastrophe(String info); // operator
+  // CRUD operations for catastrophe
+
+  Category[] getCategories();
+  PacientInfo[] getPatientHistory(GUIDPacient guid);
+  bool addPacientInfo(CCCInfo info);  // hospital, observacoes
+}
+
+--------------------------------------------------------------------------------
+CA
+--------------------------------------------------------------------------------
+WS_CCC
+{
+
+}
+
+
+
+--------------------------------------------------------------------------------
+nuca esquecer o telefone!!!!!!
+ver o nivel de cores dos hospitais (qts sao??)
+
+-dados mais actuais estao sempre na tag
+
+
