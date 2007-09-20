@@ -78,7 +78,7 @@ public class ParaMed2SEGUI extends JFrame implements IParaMedView{
 	private void buildAndAddInfoPanel() 
 	{
 		infoPanel = new InfoPanel(new Dimension( (int)(screenSize.width * 0.58) , (int)(screenSize.height * 0.85)));
-		infoPanel.loadXML("D:\\Documentacao\\ano3-verao_2006_2007\\PFC\\SVN_repos_google\\code\\ParaMedApp\\xml4config.xml");
+		infoPanel.loadXML("D:\\Bruno\\ISEL\\pfc\\code\\ParaMedApp\\xml4config.xml");
 		//infoPanel.setPreferredSize();
 		getContentPane().add(infoPanel, BorderLayout.CENTER);
 	}
