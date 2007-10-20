@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://bsa-NOTEBOOK:12000/repository/RepositoryName/test/RepositoryName162ca2b:1159aae2299:-8000/XSDDefinition1" targetNamespace="http://bsa-NOTEBOOK:12000/repository/RepositoryName/test/RepositoryName162ca2b:1159aae2299:-8000/XSDDefinition1">
+    <xsd:element name="PatientInfo">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element name="guid" minOccurs="1" type="xsd:string"/>
+                <xsd:element name="situation" minOccurs="1" type="xsd:int"/>
+                <xsd:element name="sourceType" minOccurs="1" type="xsd:int"/>
+                <xsd:element name="sourceId" minOccurs="1" type="xsd:string"/>
+                <xsd:element name="gravity" minOccurs="1" type="xsd:int"/>
+                <xsd:element name="name" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="bi" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="pressureMin" minOccurs="0" type="xsd:int"/>
+                <xsd:element name="pressureMax" minOccurs="0" type="xsd:int"/>
+                <xsd:element name="pulsation" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="diabets" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="bloodType" minOccurs="0" type="xsd:int"/>
+                <xsd:element name="hospital" minOccurs="0" type="xsd:int"/>
+                <xsd:element name="comments" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="isDead" minOccurs="0" type="xsd:boolean" default="false" />
+                <xsd:element name="zones" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="zone" minOccurs="0" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:all>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

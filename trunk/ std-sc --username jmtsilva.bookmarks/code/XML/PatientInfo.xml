@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PatientInfo>
+	<guid></guid>
+	<situation></situation>
+	<sourceType>1</sourceType>
+	<sourceId></sourceId>
+	<gravity></gravity>
+	<name></name>
+	<bi></bi>
+	<pressureMin></pressureMin>
+	<pressureMax></pressureMax>
+	<pulsation></pulsation>
+	<diabets></diabets>
+	<bloodType></bloodType>
+	<hospital></hospital>
+	<comments></comments>
+	<isDead>false</isDead>
+	<zones>
+		<zone>12=Está com paragem cardiaca</zone>
+		<zone>13=Está com paragem cardiaca</zone>
+	</zones>
+</PatientInfo>
